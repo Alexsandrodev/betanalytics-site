@@ -1,0 +1,54 @@
+    
+        <span id="porcentagem_green" style="display: none;">{{ porcentagens.green_percentage }}%</span>
+        <span id="porcentagem_red" style="display: none;">{{ porcentagens.red_percentage }}%</span>
+        <table id="tabela-jogos">
+            <thead>
+                <tr>
+                    <th>%</th>
+                    {%for minuto, data in colunas_data.items%}
+                        <th  style="color: {% if data.percent_green > 49 %}green{% else %}white{% endif %}"> {{data.green}} <br> {{data.percent_green}}% <br></th>
+                    {% endfor %}
+                    <th>%</th>
+                    <th>G</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="header">
+                    <th>H</th>
+                    {% for min in minutos %}
+                    <th>{{ min }}</th>
+                    {% endfor %}
+                    <th>Dados</th>
+                    <th>Gols</th>
+                </tr>
+                
+            {% for hora, partidas in linhas.items %}
+                <tr>
+                    <td>{{ hora }}</td>
+
+                    {% for partida in partidas %}
+                        {% if "Resultado" in partida %}
+                            <th style="background-color: {{ partida.color_result }}; font-weight: 1000">
+                                {{ partida.Resultado }}
+                                <span class="tooltip">{{partida.TimeA}} {{partida.Resultado}} {{partida.TimeB}}</span>
+                            </th>
+                        {% elif "hour_green" in partida%} 
+                            <th style="color: {% if partida.hour_green > 49 %}green{% else %}white{% endif %}">{{ partida.hour_green }} %</th>
+                        {%else%}
+                            <th style="color: {% if partida.total_goals > 49 %}green{% else %}white{% endif %}"">{{ partida.total_goals }}</th>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>H</th>
+                    {% for min in minutos %}
+                    <th>{{ min }}</th>
+                    {% endfor %}
+                    <th>%</th>
+                    <th>G</th>
+                </tr>
+            </tfoot>
+        </table>

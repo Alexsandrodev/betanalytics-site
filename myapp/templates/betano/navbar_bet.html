@@ -1,0 +1,40 @@
+{% load static %}
+
+<nav class="nav-container">
+    <div class="brand">
+        <img src="{% static 'img/logo_preta.svg' %}" alt="Logo" width="60px" height="36px">
+
+        <div class="nav-mobile">
+            <a id="nav-toggle" href=""><span></span></a>
+        </div>
+
+        <div class="nav-list">
+            <ul class="nav">
+                <li id="nav_inicio"><a href="{% url 'betano'%}"">Inicio</a></li>
+                <li id="nav_horarios"><a href="{% url 'horarios_betano'%}">Horários</a></li>
+                <li id="nav_ranking"><a href="">Ranking</a></li>
+                <li id="nav_robo"><a href="">Crie Seu Robô</a></li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <div class="user-infos">
+        <span> {{user.username}}</span>
+        
+        <div id="user-menu-toggle" class="user_img">
+            <img src="{% static 'img\avatar.svg'%}" class="avatar">
+            <img src="{% static 'img\seta.svg'%}" width="12px" height="12px" class="seta">
+        </div>
+    </div>
+</nav>
+
+<div id="user-sidebar" class="user-sidebar">
+    <ul>
+        <a href="{% url 'betano'%}""><li id="side_inicio">Inicio</li></a>
+        <a href="{% url 'horarios_betano'%}"><li id="side_horarios">Horários</li></a>
+        <a href=""><li id="side_robo">Crie Seu Robô</li></a>
+        <a href=""><li id="side_ranking">Ranking</li></a>
+        <a href="{% url 'logout' %}"><li>Sair</li></a>
+    </ul>
+</div>

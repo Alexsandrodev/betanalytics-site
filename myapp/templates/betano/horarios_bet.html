@@ -1,0 +1,144 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+<section>
+    <h1> Ligas </h1>
+    <div class="card">
+        <article class="button" onclick="refreshData('britishDerbies')">
+            <img src="{% static 'img/logo_premier_league.svg' %}">
+            <h2>British Derbies</h2>
+        </article>
+    
+        <article class="button" onclick="refreshData('copaDasEstrelas')">
+            <img src="{% static 'img/champions_league.svg' %}">
+            <h2>Copa das Estrelas</h2>
+        </article>
+    
+        <article class="button" onclick="refreshData('copaAmerica')">
+            <img src="{% static 'img/copa_america.svg' %}">
+            <h2>Copa América</h2>
+        </article>
+    
+        <article class="button" onclick="refreshData('tacaGloriaEterna')">
+            <img src="{% static 'img/gloria_eterna.svg' %}">
+            <h2>Taça Glória Eterna</h2>
+        </article>
+    
+        <article class="button" onclick="refreshData('euro')">
+            <img src="{% static 'img/euro.svg' %}">
+            <h2>Euro Copa</h2>
+        </article>
+    
+        <article class="button" onclick="refreshData('ligaEspanhola')">
+            <img src="{% static 'img/la_liga.svg' %}">
+            <h2>Liga Espanhola</h2>
+        </article>
+    
+        <article class="button" onclick="refreshData('campeonatoItaliano')">
+            <img src="{% static 'img/serie_a.svg' %}" width="30px" height="40px">
+            <h2>Campeonato Italiano</h2>
+        </article>
+    
+        <article class="button" onclick="refreshData('scudettoItaliano')">
+            <img src="{% static 'img/Coppa_italia.svg' %}" width="30px" height="40px">
+            <h2>Scudetto Italiano</h2>
+        </article>
+    </div>
+</section>
+<section>
+    <div class="filtos">
+        <h1>Filtos</h1>
+
+            <div class="container">
+                <div class="warp">
+                    <label for="hours">Horas:</label>
+                    <select id="hours">
+                        <option value="12">Últimas 12 hora</option>
+                        <option value="8">Últimas 8 hora</option>
+                        <option value="6">Últimas 6 hora</option>
+                        <option value="1">Última 1 hora</option>
+                    </select>
+                </div>
+
+                <div class="warp">
+                    <label for="both">Ambas Marção SIM/Não:</label>
+                    <select id="both">
+                        <option value="">Selecione</option>
+                        <option value="bothYes">Ambas Marcao - Sim</option>
+                        <option value="bothNo">Ambas Marcao - não</option>
+                    </select>
+                </div>
+
+                <div class="warp">
+                    <label for="matchResult">Resultado:</label>
+                    <select id="matchResult">
+                        <option value="ht">Resultado HT</option>
+                        <option value="ft">Resultado FT</option>
+                    </select>
+                </div>
+
+                <div class="warp">
+                    <label for="evenOddGoals">Gols PAR/IMPAR:</label>
+                    <select id="evenOddGoals">
+                        <option value="">Selecione</option>
+                        <option value="odd">Impar</option>
+                        <option value="even">Par</option>
+                    </select>
+                </div>
+
+                <div class="warp">
+                    <label for="overGoals">Over Gols:</label>
+                    <select id="overGoals">
+                        <option value="">Selecione</option>
+                        <option value="over_0.5">Over 0.5</option>
+                        <option value="over_1.5">Over 1.5</option>
+                        <option value="over_2.5">Over 2.5</option>
+                        <option value="over_3.5">Over 3.5</option>
+                        <option value="over_4.5">Over 4.5</option>
+                    </select>
+                </div>
+
+                <div class="warp">
+                    <label for="underGoals">Under Gols:</label>
+                    <select id="underGoals">
+                        <option value="">Selecione</option>
+                        <option value="under_0.5">Under 0.5</option>
+                        <option value="under_1.5">Under 1.5</option>
+                        <option value="under_2.5">Under 2.5</option>
+                        <option value="under_3.5">Under 3.5</option>
+                        <option value="under_4.5">Under 4.5</option>
+                    </select>
+                </div>
+                <div class="warp">
+                    <label for="turn">Viradinha:</label>
+                    <select id="turn">
+                        <option value="">Selecione</option>
+                        <option value="turnYes">Virarinha - Sim</option>
+                        <option value="turnNo">Virarinha - Não</option>
+                    </select>
+                </div>
+                <div class="warp">
+                    <label for="correctResult">Resultado Correto:</label>
+                    <select id="correctResult">
+                        <option value="">Selecione</option>
+                        <option value="under_0.5">Under 0.5</option>
+                    </select>
+                </div>
+            </div>
+    </div>
+</section>
+
+<section>
+    <h1>Dados do Futebol Virtual</h1>
+    <div class="tabelaTitulo"> 
+        <span id="green" class="porcentagem"></span>
+        <span id="competicao"></span>
+        <span id="red" class="porcentagem"></span>
+    </div>
+    <div class="tabela">
+        {% include 'betano/tabela.html' %}
+    </div>
+</section>
+
+{% endblock %}

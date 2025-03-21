@@ -1,0 +1,121 @@
+$primary-color: #fff;
+$secondary-color: #000000;
+$button-bg: #D5FF33;
+$button-hover-bg: #a4c426;
+$error-color: red;
+
+p, button, label, h1, a, li {
+    color: $primary-color;
+}
+
+body {
+    display: flex; 
+    justify-content: center;
+    min-height: 100vh; 
+    margin: 0; 
+    margin-top: 1%;
+    font-family: sans-serif;
+    overflow-x: hidden;
+    white-space: nowrap; 
+}
+
+main {
+    width: 35%;
+    height: 100%;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.156);
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    form {
+        margin-top: 2%;
+    }
+}
+
+.logo{
+    width: 151px;
+    height: 90px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    border-radius: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.errorlist {
+    li {
+        color: $error-color;
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+
+    &[for="id_cpf"] {
+        text-transform: uppercase;
+    }
+}
+
+form {
+    ul {
+        list-style: none;
+        font-size: 12px;
+        line-height: 1.5;
+        margin-bottom: 2.5%;
+        li {
+            word-wrap: break-word; /* Quebra a palavra */
+            white-space: normal; /* Permite a quebra de linha */
+            overflow-wrap: break-word;
+        }
+    }
+}
+
+input {
+    &[type="text"], &[type="password"], &[type="email"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; 
+    }
+}
+
+button {
+    &[type="submit"], &[type="button"] {
+        margin-top: 2%;
+        width: 40%;
+        padding: 10px;
+        background-color: $button-bg; 
+        color: $secondary-color;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    &[type="submit"]:hover, &[type="button"]:hover {
+        background-color: $button-hover-bg;
+    }
+}
+
+a {
+    color: $secondary-color;
+}
+
+.button {
+    display: flex; 
+    justify-content: space-around;
+}
+
+@media (max-width: 883px) {
+    main {
+        width: 70%;
+    }
+}

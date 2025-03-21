@@ -1,0 +1,19 @@
+{% extends 'base_accounts.html' %}
+
+{%load static%} 
+
+{% block extra_css %}
+    <link type="text/x-scss" rel="stylesheet" media="screen"  href="{% static 'css/register.scss'%}">
+{% endblock %}
+
+{% block content %}
+
+<h1>Registar-se</h1>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <div class="button">
+    <button type="submit">Concluir</button>
+    <button type="button"><a href="{%url 'login'%}">Login</a></button>
+  </div>
+</form>
+{% endblock %}

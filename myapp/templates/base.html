@@ -1,0 +1,47 @@
+{% load static %}
+{% load compress%}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+    <head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% compress css %}
+        <link type="text/x-scss" rel="stylesheet" media="screen" href="{% static 'css/reset.scss'%}">
+        <link type="text/x-scss" rel="stylesheet" media="screen" href="{% static 'css/style.scss'%}">
+    {% endcompress %}
+
+    <style>
+        body {
+            background-image: url("{% static 'img/bg.svg' %}");
+            background-size: cover;
+        }
+    </style>
+    <title>Bet Analitcs</title>
+
+</head>
+
+<body>
+
+    <div class="navegation">
+        {% include 'betano/navbar_bet.html' %}
+    </div>
+
+    <main>
+        {% block content %} {% endblock %} 
+    </main>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/sidebar.js' %}"></script>
+
+
+</body>
+</html>

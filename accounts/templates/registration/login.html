@@ -1,0 +1,23 @@
+{% extends 'base_accounts.html' %} 
+{% block title %}Login{% endblock %}
+{%load static%}
+
+{% block extra_css %}
+  <link type="text/x-scss" rel="stylesheet" media="screen" href="{% static 'css/login.scss'%}">
+{% endblock %}
+
+{% block content %}
+<h1>Login</h1>
+<form method="post">
+  {% csrf_token %} {{ form.as_p}}
+  <a href="{% url 'password_reset'%}" id="forgot_Password"><p>Esqueceu a senha?</p></a>
+  
+  <div class="button">
+    <button type="submit" class="login_button">Entrar</button>
+    <button type="button" class="login_button">
+      <p></p>
+      <a href="{%url 'register' %}">Cadastre-se</a>
+    </button>
+  </div>
+</form>
+{% endblock %}
